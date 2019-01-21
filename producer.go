@@ -79,7 +79,6 @@ func (p *Producer) PrepareCandidateBucketNames(basename string, word string) []s
 			
 		}
 	}
-	fmt.Printf("%v\n", len(result))
 	return result
 }
 
