@@ -79,7 +79,7 @@ func (p *Producer) PrepareCandidateBucketNames(basename string, word string) []s
 			result = append(result, fmt.Sprintf("%s%s%s", ca, del, cand2))
 		}
 	}
-
+	fmt.Printf("%v", result)
 	return result
 }
 
