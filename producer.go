@@ -80,7 +80,7 @@ func (p *Producer) PrepareCandidateBucketNames(basename string, word string) []s
 			
 		}
 	}
-	fmt.Printf(len(result))
+	fmt.Printf("%v", len(result))
 	return result
 }
 
