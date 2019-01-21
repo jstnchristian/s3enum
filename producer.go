@@ -61,7 +61,7 @@ func (p *Producer) Produce(basename string, word string) {
 }
 
 // PrepareCandidateBucketNames creates all candidate pairs
-func (p *Producer) PrepareCandidateBucketNames(basename string, word string) ([]string, int){
+func (p *Producer) PrepareCandidateBucketNames(basename string, word string) []string{
 	result := []string{}
 	resultNum := 0
 	for _, del := range p.delimiters {
@@ -80,7 +80,8 @@ func (p *Producer) PrepareCandidateBucketNames(basename string, word string) ([]
 			
 		}
 	}
-	return result, len(result)
+	fmt.Printf(len(result))
+	return result
 }
 
 func readFile(path string) ([]string, error) {
