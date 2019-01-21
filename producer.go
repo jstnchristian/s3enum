@@ -55,7 +55,7 @@ func (p *Producer) ProduceWordList(basename string, list string) {
 
 // Produce produces candidates
 func (p *Producer) Produce(basename string, word string) {
-	for _, ca, num := range p.PrepareCandidateBucketNames(basename, word) {
+	for ca, num := range p.PrepareCandidateBucketNames(basename, word) {
 		p.channel <- ca
 		num += num
 	}
