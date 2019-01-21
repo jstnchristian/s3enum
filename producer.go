@@ -63,23 +63,30 @@ func (p *Producer) Produce(basename string, word string) {
 // PrepareCandidateBucketNames creates all candidate pairs
 func (p *Producer) PrepareCandidateBucketNames(basename string, word string) []string {
 	result := []string{}
-
+	resultNum := 0
 	for _, del := range p.delimiters {
 		cand1 := fmt.Sprintf("%s%s%s", basename, del, word)
 		cand2 := fmt.Sprintf("%s%s%s", word, del, basename)
 
 		result = append(result, cand1)
+		resultNum += 1
 		result = append(result, cand2)
-
+		resultNum += 1	
+		
 		for _, ca := range p.preAndSuffixes {
 			result = append(result, fmt.Sprintf("%s%s%s", cand1, del, ca))
+			resultNum += 1
 			result = append(result, fmt.Sprintf("%s%s%s", ca, del, cand1))
+			resultNum += 1
 
 			result = append(result, fmt.Sprintf("%s%s%s", cand2, del, ca))
+			resultNum += 1
 			result = append(result, fmt.Sprintf("%s%s%s", ca, del, cand2))
+			resultNum += 1
+			
 		}
 	}
-	fmt.Printf("Result array: %v\n", result)
+	fmt.Printf("Result array: %v\n", resultNum)
 	return result
 }
 
