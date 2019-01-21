@@ -27,7 +27,7 @@ const s3host = "s3.amazonaws.com"
 func (s *S3Resolver) IsBucket(name string) bool {
 	result, err := s.resolveCNAME(fmt.Sprintf("%s.%s.", name, s3host))
 
-	fmt.Printf("%v, %v", result, err)
+	fmt.Printf("%v, %v\n", result, err)
 
 	if err == nil && !strings.Contains(result, "s3-directional") {
 		return true
