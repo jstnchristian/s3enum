@@ -63,7 +63,7 @@ func (p *Producer) Produce(basename string, word string) {
 }
 
 // PrepareCandidateBucketNames creates all candidate pairs
-func (p *Producer) PrepareCandidateBucketNames(basename string, word string) ([]string int){
+func (p *Producer) PrepareCandidateBucketNames(basename string, word string) ([]string, int){
 	result := []string{}
 	resultNum := 0
 	for _, del := range p.delimiters {
